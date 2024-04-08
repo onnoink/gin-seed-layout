@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package helloworld.v1;
+
+option go_package = "github.com/onnoink/gin-seed-layout/api/helloworld/v1;v1";
+
+message HelloRequest {
+  string message = 1;
+}
+
+message HelloReply {
+  string reply_message = 1;
+}
