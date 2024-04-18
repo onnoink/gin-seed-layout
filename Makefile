@@ -22,3 +22,12 @@ api:
 	protoc --proto_path=./api \
  	       --go_out=paths=source_relative:./api \
 	       $(API_PROTO_FILES)
+
+
+.PHONY: config
+# generate internal proto
+config:
+	protoc --proto_path=./internal \
+	       --proto_path=./third_party \
+ 	       --go_out=paths=source_relative:./internal \
+	       $(INTERNAL_PROTO_FILES)

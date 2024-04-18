@@ -36,7 +36,11 @@ func _HelloWorldHandler(svc Service) func(ctx *gin.Context) {
 
 func NewServer(svc Service) *gin.Engine {
 	// 创建默认路由引擎
-	r := gin.Default()
+	r := gin.New()
+
+	// 可以在这里加入Gin的一些中间件
+	r.Use(gin.Logger(), gin.Recovery())
+
 	RegisterHttpServer(r, svc)
 	return r
 }
